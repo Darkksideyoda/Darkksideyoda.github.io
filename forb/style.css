@@ -11,3 +11,12 @@
     overflow: hidden;
     text-decoration: none;
 }
+
+
+
+body {
+    background-image: url('waltdisney.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
