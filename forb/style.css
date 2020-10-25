@@ -1,16 +1,9 @@
-.center{
-    
-    
+#mainPopcorn {
+    margin: 0;
     position: absolute;
-    left: 52%;
     top: 50%;
-    margin: -75px 0 0 -75px;
-   
-   /* background: #424242;*/
-    background-size: 100%;
-    overflow: hidden;
-    text-decoration: none;
-}
-
-
+    left: 47%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
 
