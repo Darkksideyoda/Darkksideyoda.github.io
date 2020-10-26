@@ -1,9 +1,14 @@
-#mainPopcorn {
+body {
+    background-color: rgb(255, 206, 119);
+}
+
+.col {
     margin: 0;
     position: absolute;
     top: 50%;
-    left: 47%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-  }
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height:10% ;
 
+    
+}
