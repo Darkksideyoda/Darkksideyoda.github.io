@@ -1,5 +1,41 @@
 
-body {overflow: hidden; background-color: rgb(255, 206, 119);}
+
+  .topnav {
+    overflow: hidden;
+   background-color:  transparent;
+   
+  
+  }
+  
+  .topnav a {
+      border-radius: 20px;
+    float: left;
+    color: violet;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+      border-radius: 20px;
+    background-color:bisque;
+    color: rgb(245, 148, 77);
+  }
+  
+  .topnav a.active {
+      border-radius: 20px;
+    background-color: rgb(74,107, 142);
+    color: white;
+  }
+
+
+
+body {overflow: hidden; background-color: rgb(255, 206, 119); margin: 0;
+
+    font-family: Impact; 
+    
+}
 input {position: absolute; display: none}
 
 * {
