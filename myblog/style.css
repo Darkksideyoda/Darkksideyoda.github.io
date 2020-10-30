@@ -187,3 +187,17 @@ body {
   margin: 0 auto;
   padding: 10px;
 }
+
+
+
+
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(23, 23, 23, 0.9);
+    color: white;
+    text-align: center;
+  }
