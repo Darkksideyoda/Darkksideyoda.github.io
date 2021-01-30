@@ -1,0 +1,3 @@
+kredi kartı bilgileri girilecek ve kart dönecek rakamlar girildikçe gerçek zamanlı işlenecek.
+
+telefon rakamları girildikçe gerçek zamanlı yazılacak ve rakam buttonları press olacak veya çark dönecek

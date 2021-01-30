@@ -1,0 +1,147 @@
+@font-face{
+    font-family: cardFont;
+    src: url(ocrx-united.ttf);
+}
+
+body{
+    background-image: linear-gradient(to right, #434343 0%, black 100%);
+  
+}
+
+.creditCard{
+  
+    font-family: 'Roboto', sans-serif;
+    width: 350px;
+    height: 230px;
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%); 
+    border-radius: 25px;
+    margin: auto; 
+
+}
+
+.card-back{
+    width: 350px;
+    height: 230px;
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%); 
+    border-radius: 25px;
+    margin: auto; 
+    
+}
+
+.spaceArea{
+    height: 20px;
+
+}
+.blackLine{
+    width: 350px;
+    height: 50px;
+    background-image: linear-gradient(to right, #181717 0%, black 100%);
+    margin-top: 10px;
+}
+
+.signature{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 310px;
+    height: 35px;
+    background-color: rgb(231, 229, 229);
+    position: relative;
+}
+.signature img{
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+    filter: grayscale(80%);
+}
+
+.signature>input{
+    position:absolute;
+    right:5px;
+    bottom:3px;
+    color: silver;
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%); 
+
+    font-family: cardFont;
+    font-size:x-large;
+    font-weight: bold;
+    outline: none;
+}
+
+
+.footCard{
+    font-family: 'Roboto', sans-serif;
+
+    color: orange;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 60px;
+}
+.UnderfootCard img{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+
+
+#bankName{
+    padding-left: 230px;
+    padding-top: 10px;
+    color: silver;
+}
+#chipImage{
+    padding-top: 5px;
+    padding-left: 22px;
+}
+#nfcImage{
+    padding-left: 230px;
+
+}
+
+.cardNumber{
+    padding-top: 13px;
+    padding-left:0px;
+    
+}
+.cardNumber>input{
+
+    color: silver;
+    background-color: transparent;
+    /* border-bottom: 2px solid silver;  */
+    margin-left: 20px;
+    font-family: cardFont;
+    font-size:x-large;
+    font-weight: bold;
+    outline: none;
+}
+
+.nameTag{
+    padding-top: 20px;
+    padding-left:0px;
+}
+.nameTag>input{
+    color: silver;
+    background-color: transparent;
+    margin-left: 20px;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    font-weight: bold;
+
+}
+
+.nameTag>label{
+    color: silver;
+    background-color: transparent;
+    margin-right: 0px;
+    font-weight: bold;
+}
+
+#mastercardLogo{
+    padding-top: 10px;
+    padding-left: 300px;
+}
+
