@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    
+</head>
+<body>
+    
+<div class="creditCard">
+
+
+
+<div class="card-front">
+
+
+    <div>
+       
+        <h3 id="bankName">FLEX BANK</h3>
+        
+    </div>
+    <div>
+        <img src="credit-card.svg" alt="chipType" width="45px" id="chipImage">
+        <img src="nfc.svg" alt="chipType" width="30px" id="nfcImage">
+
+    </div>
+ 
+   
+    <div class="cardNumber">
+  
+        <input onclick="myfunc()"  name="cardNum" id="number" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="4" minlength="4" size="3"/>
+    
+        <input name="cardNum" id="number" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="4" minlength="4" size="3"/>
+
+        <input name="cardNum" id="number" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="4" minlength="4" size="3"/>
+
+        <input name="cardNum" id="number" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="4" minlength="4" size="3"/>
+
+    </div>
+
+
+
+    <div class="nameTag">
+            <input type="text" name="owner" id="ownerName">
+            <input  style="margin-left: 60px;" type="text" name="date" id="date" maxlength="2" size="1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+            <label for="date">/</label>
+            <input style=" margin-left: 0px;" type="text" name="date" id="date" maxlength="2" size="1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+
+
+    </div>
+
+
+<div>
+    <img src="mastercard.svg" alt="cardType" id="mastercardLogo" width="30px">
+
+</div>
+
+
+
+</div>
+
+
+
+
+</div>
+
+<div class="divider1" style="margin-top: 10px;">
+
+</div>
+
+
+
+<div class="card-back">
+
+    <div class="spaceArea"></div>
+    
+    <div class="blackLine"></div>
+        
+        
+    <div class="signature"> 
+        
+        <img src="authentic-id-card-hologram-500x500.png" alt="" srcset=""> 
+        <input name="cardNum" id="number" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="3" minlength="3" size="2"/>
+        
+    </div>  
+    
+    <div class="holoChip">
+    
+    
+    </div>
+    
+    
+    <div class="footCard">
+    
+        <label for="">FLEX BANK</label>
+        
+    </div>
+
+    <div class="UnderfootCard">
+    
+        <img src="elastic-band.svg" width="15px"  alt="" srcset="">
+        
+    </div>
+    
+    
+    
+    </div>
+
+
+
+<script src="alertButton.js"></script>
+
+
+</body>
+</html>
