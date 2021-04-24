@@ -6,28 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="/wwwroot/css/login.css">
     <title>Login Page</title>
 </head>
 <body>
 
     <div class="virtual-head">
         <h1>Measurement Diary</h1>
-        <img src="measurement.svg" alt="Measurement">
+        <img src="/wwwroot/images/measurement.svg" alt="Measurement">
     </div>
-
 
 <div class="login-card">
 <h3>LOGIN</h3>
-<input type="text" id="inpid" name="idInp" placeholder="Enter ID">
-<input type="password" id="inppsw" name="psswrdInp" placeholder="Enter Password">
+<input  type="text" id="inpid" name="idInp" placeholder="Enter ID" onmouseover="hideFoot()" onmouseout="showFoot()" >
+<input type="password" id="inppsw" name="psswrdInp" placeholder="Enter Password" onmouseover="hideFoot()" onmouseout="showFoot()">
 <button type="submit">ENTER</button>
 </div>
 
 
-<footer>
+<footer id="footBan">
     <p>@Bahtiyar KARAKOC/2021</p>
  
 </footer>
+
+
+
+<script>
+    function hideFoot(){
+       document.getElementById("footBan").style.visibility = "hidden";
+    }
+    function showFoot(){
+        document.getElementById("footBan").style.visibility = "visible";
+    }
+</script>
+
+
+
 </body>
 </html>
