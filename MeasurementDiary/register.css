@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-family: 'Bebas Neue', cursive;
+}
+body{
+    background-color: #401e5c;
+}
+
+.register-card{
+    width: 600px;
+	height: 800px;
+	
+    border-radius: 20px;
+    background: #401e5c;
+    box-shadow:  -20px 20px 60px #361a4e,
+                 20px -20px 60px #4a236a;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 100px;
+}
+.register-card h3{
+    text-align: center;
+    font-size: 60px;
+    text-decoration:underline;
+    margin-bottom: 0px;
+    
+}
+
+.innerRegister-card{
+    width: 550px;
+	height: 680px;
+	border: solid 2px;
+    border-color:black;
+    border-radius: 10px;
+    background: #401e5c;
+    box-shadow:  -20px 20px 60px #361a4e,
+                 20px -20px 60px #4a236a;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom:auto;
+    margin-top: 20px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.innerRegister-card form{
+    display: flex;
+   justify-content: center;
+   flex-direction: column;
+   margin-top: -50px;
+}
+
+.register-card .genderSelect{
+    display: flex;
+    justify-content: center;
+    flex-direction:row;
+    margin-bottom: 330px;
+    background-color: #18464e;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 50px;
+    margin-top: 10px;
+    padding-top:10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+
+}
+.register-card  h4{
+    text-align: center;
+    font-size: 20px;
+    background-color: goldenrod;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-top: 30px;
+    margin-bottom: auto;
+}
+
+.register-card .genderSelect input{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-left: 30px;
+    margin-right: 30px;
+    cursor: pointer;
+
+}
+.register-card .genderSelect label{
+
+    color:black;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-left: -25px;
+    margin-top: auto;
+    margin-bottom: auto;
+    cursor: pointer;
+}
+
+.register-card .user-info{
+    display: flex;
+    justify-content: center;
+    flex-direction:column;
+    margin-top: -300px;
+}
+
+.register-card .user-info input{
+    width: 70%;
+height: 30px;
+text-align: center;
+border-radius: 5px;
+border: none;
+outline: none;
+font-size: 25px;
+background-color:rgb(187, 187, 187);
+margin-left: auto;
+margin-right: auto;
+margin-bottom: auto;
+margin-top: 35px;
+
+}
+
+
+.register-card .user-info button{
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+    background-color:rgb(187, 187, 187);
+}
+.register-card .user-info button:hover{
+    background-color:red;
+}
