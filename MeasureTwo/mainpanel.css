@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+
+}
+body{
+    background-color: #212121 ;
+   
+}
+#avatar-profie{
+    width:53px; 
+    margin-right: 10px; 
+    margin-top: 8px;
+    border-radius: 50%;
+    border: 1px solid black;
+    
+}
+.nav-own{
+    width: 100%;
+    height: 70px;
+    background-color: #00e676;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+.nav-own .sidenav-trigger{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+}
+.nav-own h3{
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 3px;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+#slide-out{
+    background-color: #212121;
+}
+.background{
+    background-color: #107243;
+    
+}
+
+.main-panel{
+    /* margin-top: 60px; */
+    width:100%;
+    height: 9900px;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    /* justify-content:space-around */
+    
+}
+
+
+.main-panel .section-first{
+    width: 100%;
+    height: 300px;
+    background-color: burlywood;
+    display: flex;
+    flex-direction: row;
+}
+
+.main-panel .section-first .progres-chart{
+    width: 50%;
+    height: 350px;
+    background-color: blue;
+}
+
+.main-panel .section-first .calorie-panel{
+    width: 50%;
+    height: 350px;
+    background-color: orange;
+}
+
+.main-panel .section-second{
+    width: 100%;
+    height: 300px;
+    background-color: burlywood;
+    display: flex;
+    flex-direction: row;
+}
+
+.main-panel .section-second .diet-panel{
+    width: 50%;
+    height: 300px;
+    background-color: rgb(0, 78, 59);
+
+}
+
+.main-panel .section-second .excercise-panel{
+    width: 50%;
+    height: 300px;
+    background-color: rgb(15, 0, 24);
+}
+
+.main-panel .section-third{
+    width: 100%;
+    height: 218.5px;
+    background-color: burlywood;
+    display: flex;
+    flex-direction: row;
+
+}
+/* .main-panel .progres-chart{
+    width: 50%;
+    height: 300px;
+    background-color: blue;
+    
+    
+}
+
+.main-panel .calorie-panel{
+    width: 50%;
+    height: 300px;
+    background-color: orange;
+}
+
+.main-panel .diet-panel{
+    width: 50%;
+    height: 300px;
+    background-color: rgb(0, 78, 59);
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.main-panel .excercise-panel{
+    width: 50%;
+    height: 300px;
+    background-color: rgb(15, 0, 24);
+    margin-left: auto;
+    
+}
+
+.main-panel .prediction-panel{
+    width: 50%;
+    height: 300px;
+    background-color: rgb(39, 87, 0);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ */
+
+
+
+.page-footer{
+
+    position:fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 1px;
+}
+
+#footerContain{
+    color: black;
+}
+#text-attiribtue:hover{
+background-color: #808080;
+}
