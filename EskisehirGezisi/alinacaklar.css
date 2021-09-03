@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+  
+  }
+  
+  @media only screen and (max-width: 600px) {
+    body {
+      background-color: rgb(34, 34, 68);;
+      font-family: 'Roboto', sans-serif;
+    }
+
+
+    .infoSection{
+        width: 100%;
+        height:240px;
+        background:url(../banner.jpg);
+        border-bottom: 1px solid black;
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+    }
+
+    .infoSection span{
+        margin: auto;
+        letter-spacing: 2px;
+        text-decoration: underline;
+    }
+
+    /*
+
+ -----------------------------------------------------   
+    FIRST SECTION
+    */
+  .firstSection{
+      width: 100%;
+      height: 60px;
+      background-color: rgb(34, 34, 68);
+      margin-top: 20px;
+      border-top: 1px solid salmon;
+      display: flex;
+      flex-direction: row;
+
+      
+  }
+  .firstSection a{
+      margin-right: auto;
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: 35px;
+      color: white;
+      letter-spacing: 1px;
+      text-decoration: underline;
+  }
+  .firstSection img{
+      margin-right: auto;
+  }
+    
+
+
+
+  /*
+    FIRST SECTION END
+    */
+
+/*------------------------------------------------------*/
+
+
+
+      /*
+    SECOND SECTION
+    */
+
+.secondSection{
+    width: 100%;
+    height: 60px;
+    background-color: rgb(34, 34, 68);
+    margin-top: 20px;
+    border-top: 1px solid goldenrod;
+    display: flex;
+    flex-direction: row;
+
+   }
+
+
+.secondSection a{
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 35px;
+    color: white;
+    letter-spacing: 1px;
+    text-decoration: underline;
+}
+.secondSection img{
+    margin-right: auto;
+
+}
+
+
+
+      /*
+    SECOND SECTION END
+--------------------------------------------------------------------    
+    */
+       .thirdSection{
+        width: 100%;
+        height: 60px;
+        background-color: rgb(34, 34, 68);
+        margin-top: 20px;
+        border-top: 1px solid yellow;
+        display: flex;
+        flex-direction: row;
+       }
+
+       .thirdSection a{
+        margin-right: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 35px;
+        color: white;
+        letter-spacing: 1px;
+        text-decoration: underline;
+       }
+       .thirdSection img{
+        margin-right: auto;
+        margin-left: 39px;
+
+       }
+
+
+
+        .fourthSection{
+            width: 100%;
+            height: 60px;
+            background-color: rgb(34, 34, 68);
+            margin-top: 20px;
+            border-top: 1px solid blue;
+            display: flex;
+            flex-direction: row;
+        }
+        .fourthSection a{
+            margin-right: auto;
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: 35px;
+            color: white;
+            letter-spacing: 1px;
+            text-decoration: underline;
+        }
+
+
+        .fourthSection img{
+            margin-right: auto;
+            margin-left: 35px;
+
+
+        }
+       /*----------------------------------------------------------*/
+
+       .listeAlani{
+           width: 350px;
+           height: 300px;
+           display: flex;
+           margin: auto;
+           margin-top: 100px;
+
+       }
+       .listeAlani .listeEkleme{
+           width: 100%;
+           height: 350px;
+           border-radius: 50px;
+           background: #3e3e63;
+           box-shadow:  20px 20px 60px #1d1d2d,
+             -20px -20px 60px #27273d;
+             display: flex;
+             flex-direction: column;
+       }
+       #urunDeger{
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+        color: whitesmoke;  
+        text-align: center;
+      }
+      #urunDeger::placeholder{
+        text-align: center;
+      }
+       #urunDeger:focus{
+    
+        border-bottom: 1px solid #00e676 !important;
+        box-shadow: 0 1px 0 0 #00e676 !important
+      }
+
+
+      #adetDeger{
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+        color: whitesmoke;  
+        text-align: center;
+      }
+      #adetDeger::placeholder{
+        text-align: center;
+      }
+       #adetDeger:focus{
+    
+        border-bottom: 1px solid #00e676 !important;
+        box-shadow: 0 1px 0 0 #00e676 !important
+      }
+
+      #urunEkle{
+          width: 110px;
+          color: black;
+          margin: auto;
+          background-color:forestgreen;
+      }
+
+
+
+  }

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alınacaklar</title>
+
+
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="icon" sizes="192x192" href="/pwa/img/192x192.png">
+    <link rel="icon" sizes="128x128" href="/pwa/img/128x128.png">
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@0.3.0/dist/lottie-player.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="alinacaklar.css">
+
+
+
+
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/sw.js?v=3');
+        });
+      }
+  </script>
+
+
+
+</head>
+
+  <body>
+    
+    <nav>
+        <div class="nav-wrapper" style="background-color: rgb(15, 15, 27);">
+          <a href="#!" class="brand-logo"><img width="50px"  src="luggage.svg" alt="" srcset=""></a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons" style="color:rgb(209, 206, 255)">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+     
+          </ul>
+        </div>
+      </nav>
+    
+      <ul class="sidenav" style="background-color:rgb(15, 15, 27);" id="mobile-demo">
+
+        <div class="infoSection">
+            <span>
+                KULLANICI ADI
+            </span>
+        </div>
+
+          <div class="firstSection">
+            <a href="alinacaklar.html">ALINACAKLAR LİSTESİ</a>
+            <img src="cart.svg" width="40px" alt="" srcset="">
+          </div>
+
+          <div class="secondSection">
+            <a href="yapilacaklar.html">YAPILACAKLAR LİSTESİ</a>
+            <img src="confetti.svg" width="40px" alt="" srcset="">
+        </div>
+
+        <div class="thirdSection">
+            <a href="izlenecekler.html">DİZİ FİLM LİSTESİ</a>
+            <img src="movie.svg" width="40px" alt="" srcset="">
+
+        </div>
+
+        <div class="fourthSection">
+            <a href="listeler.html">TÜM LİSTLERİ GÖR</a>
+            <img src="settings.svg" width="40px" alt="" srcset="">        </div>
+
+
+      </ul>
+
+
+
+      <form action="" method="get">
+
+ 
+      <div class="listeAlani">
+
+        <div class="listeEkleme">
+          <input id="urunDeger" type="text" class="validate" placeholder="Alınacak Ürünü Gir" style="font-family: 'Roboto', sans-serif;" >
+          <input id="adetDeger" type="text" class="validate" placeholder="Adet Giriniz(Opsiyonel)" style="font-family: 'Roboto', sans-serif;" >
+
+          <a id="urunEkle" class="waves-effect waves-orange btn" type="submit" name="action">EKLE</a>
+
+        </div>
+
+        <div class="listeGoster">
+         
+        </div>
+
+      </div>
+             
+    </form>
+    
+
+
+     
+     
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
+
+
+<script>
+     document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems);
+  });
+
+</script>
+
+</body>
+</html>
+
+
