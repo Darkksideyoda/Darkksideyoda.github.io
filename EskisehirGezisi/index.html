@@ -36,8 +36,9 @@
       }
   </script>
 -->
-    
+    <!--
     <script>
+        
  if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
    navigator.serviceWorker.register('https://darkksideyoda.github.io/EskisehirGezisi/sw.js').then(function (registration) {
@@ -51,6 +52,20 @@
  } else {
   console.log('service worker is not supported');
  }
+       
+        
+        
+</script>
+-->
+      <script>
+            if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('sw.js')
+    .then(() => { console.log('Service Worker Registered'); });
+}
+
+ 
+        
 </script>
 
 
