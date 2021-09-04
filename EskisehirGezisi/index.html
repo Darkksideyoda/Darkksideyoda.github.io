@@ -116,24 +116,7 @@
   </form>
       </div>
   
-  <button id="install-app" >Uygulamayı Yükle</button>
-<script>
-    const installButton = document.getElementById('install-app');
-    let beforeInstallPromptEvent
-    window.addEventListener("beforeinstallprompt", function(e) {
-        e.preventDefault();
-        beforeInstallPromptEvent = e
-        installButton.style.display = 'block'
-        installButton.addEventListener("click", function() {
-            e.prompt();
-        });
-        installButton.hidden = false;
-    });
-    installButton.addEventListener("click", function() {
-        beforeInstallPromptEvent.prompt();
-    });
-</script>
-  
+
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
