@@ -92,7 +92,12 @@ features.forEach(function (feature) {
 });
 });
 
+function writeToInfoPanel(msg, json) {            
+            document.getElementById('infoPanel-msg').innerHTML = msg;
 
+            //Remove "map" object from json to prevent circular reference, and format JSON string.
+            document.getElementById('infoPanel-json').value = JSON.stringify(Object.assign({}, json, { map: undefined }), null, '\t').replace(/\"([^(\")"]+)\":/g, "$1:");
+        }
 
       
       
