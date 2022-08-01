@@ -102,5 +102,20 @@ function writeToInfoPanel(msg, json) {
       
       
     </script>
+
+<div id="myMap" style="position:relative;width:100%;min-width:290px;height:600px;"></div>
+
+    <div id="infoPanel" style="position:absolute;top:10px;left:10px;width:260px;height:580px;border:solid 1px #000;background-color:white;padding:5px;">
+        <div id="infoPanel-msg"></div>
+        <textarea id="infoPanel-json" style="width:250px;height:550px;white-space:nowrap"></textarea>
+    </div>
+
+    <fieldset style="width:calc(100% - 30px);min-width:290px;margin-top:10px;">
+        <legend>Creator indoor maps</legend>
+        This is a demo of the <a href="https://docs.microsoft.com/en-us/azure/azure-maps/tutorial-creator-indoor-maps">Azure Maps Creator indoor maps tutorial</a> and the <a href="https://docs.microsoft.com/en-us/azure/azure-maps/how-to-use-indoor-module">how-to implementation for the Azure Maps Web SDK</a>.
+        Click on the facility to make the level picker appear.
+    </fieldset>
+
+
   </body>
 </html>
