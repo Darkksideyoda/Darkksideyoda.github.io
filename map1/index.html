@@ -21,8 +21,8 @@
       }
 
       #map-id {
-        width: 50%;
-        height: 50%;
+        width: 100%;
+        height: 100%;
       }
     </style>
   </head>
@@ -66,44 +66,35 @@
       map.events.add("levelchanged", indoorManager, (eventData) => {
         //put code that runs after a level has been changed
         console.log("The level has changed:", eventData);
+        writeToInfoPanel('The level has changed:', eventData);
+
       });
 
       map.events.add("facilitychanged", indoorManager, (eventData) => {
         //put code that runs after a facility has been changed
         console.log("The facility has changed:", eventData);
+        writeToInfoPanel('The facility has changed:', eventData);
+
       });
 
 
-     //Add event for when the focused facility level changes.
-     map.events.add('levelchanged', indoorManager, (eventData) => {
-                    //code that you want to run after a level has been changed
-                    writeToInfoPanel('The level has changed:', eventData);
-                });
 
-                //Add event for when the focused facility changes.
-                map.events.add('facilitychanged', indoorManager, (eventData) => {
-                    //code that you want to run after a facility has been changed
-                    writeToInfoPanel('The facility has changed:', eventData);
-                });
+      map.events.add("click", function (e) {
 
-                /* Upon a mouse click, log the feature properties to the browser's console. */
-                map.events.add("click", function (e) {
+var features = map.layers.getRenderedShapes(e.position, 'unit');
 
-                    var features = map.layers.getRenderedShapes(e.position, 'unit');
+writeToInfoPanel('Feature(s) clicked:', features);
 
-                    writeToInfoPanel('Feature(s) clicked:', features);
-
-                    features.forEach(function (feature) {
-                        if (feature.layer.id == 'indoor_unit_office') {
-                            console.log(feature);
-                        }
-                    });
-                });
+features.forEach(function (feature) {
+    if (feature.layer.id == 'indoor_unit_office') {
+        console.log(feature);
+    }
+});
+});
 
 
 
-
-
+      
       
     </script>
   </body>
