@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no" />
-    <title>Indoor Maps App YENI</title>
+    <title>Indoor Maps App</title>
     
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
@@ -30,11 +30,13 @@
   <body>
     <div id="map-id"></div>
     <script>
-      const subscriptionKey = ;
-      const tilesetId =
-      const statesetId = 
-
+      const subscriptionKey = "WEXP8-PCqDdryQh6kHw_TPwIejLvcTHp--JLFdYrCKI";
+      const tilesetId = "094f1260-84b2-8ebb-2539-9d7715328ff2";
+      const statesetId = "6d5ecdac-9fdb-312f-e274-52d1e9ed9dd7";
+      const clientID = "be010418-c5f7-4957-b6d6-bb53c82c3507";
       const map = new atlas.Map("map-id", {
+        enableCorsCorrelation: true,
+
         //use your facility's location
         center: [-122.13203, 47.63645],
         //or, you can use bounds: [# west, # south, # east, # north] and replace # with your Map bounds
@@ -42,7 +44,15 @@
         view: 'Auto',
         authOptions: { 
             authType: 'subscriptionKey',
-            subscriptionKey: subscriptionKey
+            subscriptionKey: subscriptionKey,
+            clientId:"be010418-c5f7-4957-b6d6-bb53c82c3507",
+             getToken: function (resolve, reject, map) {
+      //URL to your authentication service that retrieves an Azure Active Directory Token.
+      var tokenServiceUrl = "https://azuremapscodesamples.azurewebsites.net/Common/TokenService.ashx";
+
+      fetch(tokenServiceUrl).then(r => r.text()).then(token => resolve(token));
+    }
+
         },
         zoom: 19,
       });
@@ -55,53 +65,126 @@
         levelControl: levelControl, //level picker
         tilesetId: tilesetId,
         statesetId: statesetId,
-        geography :"eu"
+        geography :"eu",
+
+        
       });
-;
+
+    
 
       if (statesetId.length > 0) {
         indoorManager.setDynamicStyling(true);
       }
 
-      map.events.add("levelchanged", indoorManager, (eventData) => {
-        //put code that runs after a level has been changed
-        console.log("The level has changed:", eventData);
-        writeToInfoPanel('The level has changed:', eventData);
 
-      });
+      ///////////////INFO PANEL////////////////////////
 
-      map.events.add("facilitychanged", indoorManager, (eventData) => {
-        //put code that runs after a facility has been changed
-        console.log("The facility has changed:", eventData);
-        writeToInfoPanel('The facility has changed:', eventData);
+//      map.events.add("levelchanged", indoorManager, (eventData) => {
+//        //put code that runs after a level has been changed
+//        console.log("The level has changed:", eventData);
+//        writeToInfoPanel('The level has changed:', eventData);
 
-      });
+//      });
+
+//      map.events.add("facilitychanged", indoorManager, (eventData) => {
+//        //put code that runs after a facility has been changed
+//        console.log("The facility has changed:", eventData);
+//        writeToInfoPanel('The facility has changed:', eventData);
+
+//      });
 
 
 
-      map.events.add("click", function (e) {
+//      map.events.add("click", function (e) {
 
-var features = map.layers.getRenderedShapes(e.position, 'unit');
+//var features = map.layers.getRenderedShapes(e.position, 'unit');
 
-writeToInfoPanel('Feature(s) clicked:', features);
+//writeToInfoPanel('Feature(s) clicked:', features);
 
-features.forEach(function (feature) {
-    if (feature.layer.id == 'indoor_unit_office') {
-        console.log(feature);
-    }
-});
-});
+//features.forEach(function (feature) {
+//    if (feature.layer.id == 'indoor_unit_office') {
+//        console.log(feature);
+//    }
+//});
+//});
 
-function writeToInfoPanel(msg, json) {            
-            document.getElementById('infoPanel-msg').innerHTML = msg;
+//function writeToInfoPanel(msg, json) {            
+//            document.getElementById('infoPanel-msg').innerHTML = msg;
 
-            //Remove "map" object from json to prevent circular reference, and format JSON string.
-            document.getElementById('infoPanel-json').value = JSON.stringify(Object.assign({}, json, { map: undefined }), null, '\t').replace(/\"([^(\")"]+)\":/g, "$1:");
-        }
+//            //Remove "map" object from json to prevent circular reference, and format JSON string.
+//            document.getElementById('infoPanel-json').value = JSON.stringify(Object.assign({}, json, { map: undefined }), null, '\t').replace(/\"([^(\")"]+)\":/g, "$1:");
+//        }
 
       
       
+
+
+//        ////////////////////EVENT EKLEME////////////////////////////
+//               var popup;
+
+
+//        map.events.add('ready', function () {
+//    var datasource = new atlas.source.DataSource();
+//    map.sources.add(datasource);
+   
+						
+//    datasource.add([
+//        new atlas.data.Feature(new atlas.data.Point([-122.13259996846318,47.63659272718252]), {
+//            title: 'No template - title/description',
+//            description: 'This point doesn\'t have a template defined, fallback to title and description properties.'
+//        }),
+//    ])
+
+//var layer = new atlas.layer.BubbleLayer(datasource);
+//map.layers.add(layer);
+
+//popup = new atlas.Popup();
+
+//////Add a click event to the layer.
+//map.events.add('click', layer, showPopup);
+//})
+
+
+
+//function showPopup(e) {
+//    if (e.shapes && e.shapes.length > 0) {
+//        var properties = e.shapes[0].getProperties();
+
+//        popup.setOptions({
+//            //Update the content of the popup.
+//            content: atlas.PopupTemplate.applyTemplate(properties, properties.popupTemplate),
+
+//            //Update the position of the popup with the pins coordinate.
+//            position: e.shapes[0].getCoordinates()
+//        });
+
+//        //Open the popup.
+//        popup.open(map);
+//    }
+//}
+        
+
+        
+
+
+
+
+
+
+
+
+
     </script>
+
+
+
+
+
+
+
+
+<!-- 
+
 
 <div id="myMap" style="position:relative;width:100%;min-width:290px;height:600px;"></div>
 
@@ -115,7 +198,9 @@ function writeToInfoPanel(msg, json) {
         This is a demo of the <a href="https://docs.microsoft.com/en-us/azure/azure-maps/tutorial-creator-indoor-maps">Azure Maps Creator indoor maps tutorial</a> and the <a href="https://docs.microsoft.com/en-us/azure/azure-maps/how-to-use-indoor-module">how-to implementation for the Azure Maps Web SDK</a>.
         Click on the facility to make the level picker appear.
     </fieldset>
-
+ -->
 
   </body>
 </html>
+
+
