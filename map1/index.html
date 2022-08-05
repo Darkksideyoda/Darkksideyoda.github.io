@@ -10,7 +10,7 @@
 
     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     <script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
-      
+     <script src="/lib/azure-maps-animations.min.js"></script> 
     <style>
       html,
       body {
@@ -24,34 +24,77 @@
         width: 100%;
         height: 100%;
       }
+	    .dialogWindow{
+	    visibility :"hidden";
+	    }
+
+
+      .pulseIcon {
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: orange;
+            border: 2px solid white;
+            cursor: pointer;
+            box-shadow: 0 0 0 rgba(0, 204, 255, 0.4);
+            animation: pulse 1.2s infinite;
+        }
+
+            .pulseIcon:hover {
+                animation: none;
+            }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 204, 255, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 130px rgba(0, 204, 255, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 204, 255, 0);
+            }
+        }
     </style>
   </head>
 
   <body>
     <div id="map-id"></div>
     <script>
+   let point0;
+      var marker;
       const subscriptionKey = "WEXP8-PCqDdryQh6kHw_TPwIejLvcTHp--JLFdYrCKI";
-      const tilesetId = "094f1260-84b2-8ebb-2539-9d7715328ff2";
-      const statesetId = "6d5ecdac-9fdb-312f-e274-52d1e9ed9dd7";
+      const tilesetId = "b28b1ac6-a649-f8c4-2dea-8b6783fdd18d";
+      const statesetId = "5d29c21f-79d4-2a9e-fde8-1408f5a66a97";
       const clientID = "be010418-c5f7-4957-b6d6-bb53c82c3507";
       const map = new atlas.Map("map-id", {
         enableCorsCorrelation: true,
-
+        
         //use your facility's location
-        center: [-122.13203, 47.63645],
+        center: [29.0323177,41.1075701],
         //or, you can use bounds: [# west, # south, # east, # north] and replace # with your Map bounds
         style: "blank",
         view: 'Auto',
+
+        renderWorldCopies: false,
+    showBuildingModels: false,
+    showLogo: false,
+    showFeedbackLink: false,
+
+
         authOptions: { 
             authType: 'subscriptionKey',
             subscriptionKey: subscriptionKey,
             clientId:"be010418-c5f7-4957-b6d6-bb53c82c3507",
-             getToken: function (resolve, reject, map) {
-      //URL to your authentication service that retrieves an Azure Active Directory Token.
-      var tokenServiceUrl = "https://azuremapscodesamples.azurewebsites.net/Common/TokenService.ashx";
+    //          getToken: function (resolve, reject, map) {
+    //   //URL to your authentication service that retrieves an Azure Active Directory Token.
+    //   var tokenServiceUrl = "https://azuremapscodesamples.azurewebsites.net/Common/TokenService.ashx";
 
-      fetch(tokenServiceUrl).then(r => r.text()).then(token => resolve(token));
-    }
+    //   fetch(tokenServiceUrl).then(r => r.text()).then(token => resolve(token));
+    // }
 
         },
         zoom: 19,
@@ -77,98 +120,172 @@
       }
 
 
-      ///////////////INFO PANEL////////////////////////
+      //////////////INFO PANEL////////////////////////
 
-//      map.events.add("levelchanged", indoorManager, (eventData) => {
-//        //put code that runs after a level has been changed
-//        console.log("The level has changed:", eventData);
-//        writeToInfoPanel('The level has changed:', eventData);
+     map.events.add("levelchanged", indoorManager, (eventData) => {
+       //put code that runs after a level has been changed
+       console.log("The level has changed:", eventData);
+       writeToInfoPanel('The level has changed:', eventData);
 
-//      });
+     });
 
-//      map.events.add("facilitychanged", indoorManager, (eventData) => {
-//        //put code that runs after a facility has been changed
-//        console.log("The facility has changed:", eventData);
-//        writeToInfoPanel('The facility has changed:', eventData);
+     map.events.add("facilitychanged", indoorManager, (eventData) => {
+       //put code that runs after a facility has been changed
+       console.log("The facility has changed:", eventData);
+       writeToInfoPanel('The facility has changed:', eventData);
 
-//      });
+     });
 
+     map.events.add('ready', function () {
+                //Create a HTML marker and add it to the map.
+                marker = new atlas.HtmlMarker({
+                    htmlContent: '<div class="pulseIcon"></div>',
+                    position: [29.0323177,41.1075701]
+                });
 
+                map.markers.add(marker);
+            });
 
-//      map.events.add("click", function (e) {
+     map.events.add("click", function (e) {
 
-//var features = map.layers.getRenderedShapes(e.position, 'unit');
+var features = map.layers.getRenderedShapes(e.position, 'unit');
 
-//writeToInfoPanel('Feature(s) clicked:', features);
+writeToInfoPanel('Feature(s) clicked:', features);
 
-//features.forEach(function (feature) {
-//    if (feature.layer.id == 'indoor_unit_office') {
-//        console.log(feature);
-//    }
-//});
-//});
+features.forEach(function (feature) {
+   if (feature.layer.id == 'indoor_unit_office') {
+       console.log(feature);
+   }
+});
+});
 
-//function writeToInfoPanel(msg, json) {            
-//            document.getElementById('infoPanel-msg').innerHTML = msg;
+function writeToInfoPanel(msg, json) {            
+           document.getElementById('infoPanel-msg').innerHTML = msg;
 
-//            //Remove "map" object from json to prevent circular reference, and format JSON string.
-//            document.getElementById('infoPanel-json').value = JSON.stringify(Object.assign({}, json, { map: undefined }), null, '\t').replace(/\"([^(\")"]+)\":/g, "$1:");
-//        }
+           //Remove "map" object from json to prevent circular reference, and format JSON string.
+           document.getElementById('infoPanel-json').value = JSON.stringify(Object.assign({}, json, { map: undefined }), null, '\t').replace(/\"([^(\")"]+)\":/g, "$1:");
+       }
 
       
       
 
 
-//        ////////////////////EVENT EKLEME////////////////////////////
-//               var popup;
+       ////////////////////EVENT EKLEME////////////////////////////
+              var popup;
 
 
-//        map.events.add('ready', function () {
-//    var datasource = new atlas.source.DataSource();
-//    map.sources.add(datasource);
+       map.events.add('ready', function () {
+   var datasource = new atlas.source.DataSource();
+   map.sources.add(datasource);
    
+   //BURASI INSANLARI GENERATE ETTIGIN YER UNUTMA ////
+   point0 = new atlas.Shape(new atlas.data.Point(getRandomPosition()), null,{});
+   let point1 = new atlas.data.Point([29.0323177,41.1075701]);
+   let point2 = new atlas.data.Point([29.0323177,41.1075701]);
+   let point3 = new atlas.data.Point([29.0323177,41.1075701]);
+   let point4 = new atlas.data.Point([29.0323177,41.1075701]);
+   let point5 = new atlas.data.Point([29.0323177,41.1075701]);
+
 						
-//    datasource.add([
-//        new atlas.data.Feature(new atlas.data.Point([-122.13259996846318,47.63659272718252]), {
-//            title: 'No template - title/description',
-//            description: 'This point doesn\'t have a template defined, fallback to title and description properties.'
-//        }),
-//    ])
+  //  datasource.add([new atlas.data.Feature(point, {
+  //          title: 'No template - title/description',
+  //          description: 'This point doesn\'t have a template defined, fallback to title and description properties.'
+  //      }),
+  //  ])
 
-//var layer = new atlas.layer.BubbleLayer(datasource);
-//map.layers.add(layer);
-
-//popup = new atlas.Popup();
-
-//////Add a click event to the layer.
-//map.events.add('click', layer, showPopup);
-//})
+  datasource.add(point0)
+  datasource.add(point1)
+  datasource.add(point2)
+  datasource.add(point3)
+  datasource.add(point4)
+  datasource.add(point5)
+  // datasource.add([new atlas.data.Feature(point3, {}),])
 
 
 
-//function showPopup(e) {
-//    if (e.shapes && e.shapes.length > 0) {
-//        var properties = e.shapes[0].getProperties();
+var layer = new atlas.layer.BubbleLayer(datasource,null,{
+  color: "#840b74",
+	strokeColor: "#3adfb6",
+	blur: 0.1,
+	strokeWidth: 10,
+	radius: 10
+});
+map.layers.add(layer);
 
-//        popup.setOptions({
-//            //Update the content of the popup.
-//            content: atlas.PopupTemplate.applyTemplate(properties, properties.popupTemplate),
 
-//            //Update the position of the popup with the pins coordinate.
-//            position: e.shapes[0].getCoordinates()
-//        });
+//TIKLANDIĞINDA POP UP AÇAR BUBBLE USTUNDE////
+// popup = new atlas.Popup();
 
-//        //Open the popup.
-//        popup.open(map);
-//    }
-//}
+// ////Add a click event to the layer.
+// map.events.add('click', layer, showPopup);
+})
+
+
+//BUBBLE POPUP CONTENT//
+function showPopup(e) {
+   if (e.shapes && e.shapes.length > 0) {
+       var properties = e.shapes[0].getProperties();
+
+       popup.setOptions({
+           //Update the content of the popup.
+           content: atlas.PopupTemplate.applyTemplate(properties, properties.popupTemplate),
+
+           //Update the position of the popup with the pins coordinate.
+           position: e.shapes[0].getCoordinates()
+       });
+
+       //Open the popup.
+       popup.open(map);
+   }
+}
         
 
         
+////////////////////////////////////////////////RADARA GÖRE HAREKET ETME ///////////////////////////
+
+let currentGroupAnimation = null;
+let numPoints = 50;
+
+function getRandomPosition() {
+            return [Math.random() * 360 - 180, Math.random() * 170 - 85];
+        }
 
 
 
 
+function playAnimations(type) {
+
+            if (currentGroupAnimation) {
+                currentGroupAnimation.dispose();
+                currentGroupAnimation = null;
+            }
+
+            var animations = [];
+
+            //Animate each point to a new random coordinate over a random duration between 100ms and 2000ms
+            for (var i = 0; i < numPoints; i++) {
+                animations.push(atlas.animations.setCoordinates(point0[i], getRandomPosition(), { duration: Math.random() * 1900 + 100 }));
+            }
+
+            var groupOptions = {
+                playType: type
+            };
+
+            if(type === 'interval'){
+                groupOptions.interval = 100;
+            }
+
+            currentGroupAnimation = new atlas.animations.GroupAnimation(animations, groupOptions);
+            currentGroupAnimation.play();
+        }
+
+        function stopAnimations() {
+            if (currentGroupAnimation) {
+                currentGroupAnimation.stop();
+            }
+        }
+
+       
 
 
 
@@ -183,24 +300,36 @@
 
 
 
-<!-- 
+<button onclick="onOffDialogWindow()">Pencere Aç/Kapa</button>
+<button onclick=" playAnimations('interval');">Yer Değiştir</button>
+
+<div id="dialogWindow">
 
 
 <div id="myMap" style="position:relative;width:100%;min-width:290px;height:600px;"></div>
-
-    <div id="infoPanel" style="position:absolute;top:10px;left:10px;width:260px;height:580px;border:solid 1px #000;background-color:white;padding:5px;">
+    <div id="infoPanel" style="position:absolute;top:10px;left:10px;width:260px;height:200px;border:solid 1px #000;background-color:white;padding:5px;">
         <div id="infoPanel-msg"></div>
-        <textarea id="infoPanel-json" style="width:250px;height:550px;white-space:nowrap"></textarea>
+        <textarea id="infoPanel-json" style="width:250px;height:200px;white-space:nowrap"></textarea>
     </div>
-
     <fieldset style="width:calc(100% - 30px);min-width:290px;margin-top:10px;">
         <legend>Creator indoor maps</legend>
         This is a demo of the <a href="https://docs.microsoft.com/en-us/azure/azure-maps/tutorial-creator-indoor-maps">Azure Maps Creator indoor maps tutorial</a> and the <a href="https://docs.microsoft.com/en-us/azure/azure-maps/how-to-use-indoor-module">how-to implementation for the Azure Maps Web SDK</a>.
         Click on the facility to make the level picker appear.
     </fieldset>
- -->
+  </div>
+<script>
+
+  let mapFiddle = document.getElementById("dialogWindow");
+  function onOffDialogWindow(){
+    if(mapFiddle.style.visibility == "visible"){
+      mapFiddle.style.visibility = "hidden";
+    }
+    else{
+      mapFiddle.style.visibility = "visible"
+    }
+  }
+
+</script>
 
   </body>
 </html>
-
-
